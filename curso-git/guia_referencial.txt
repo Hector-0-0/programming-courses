@@ -35,7 +35,7 @@ git restore documento
 git checkout document
 --> Cambia de rama O restaura archivos (hace dos cosas diferentes)
 --> Para archivos, funciona similar a git restore
-git reset --hard documento
+git reset --hard id
 --> Mueve el puntero de la rama (HEAD) a otro commit
 --> Modifica el historial de commits
 --> Descarta cambios en staging y working directory
