@@ -1,74 +1,133 @@
-git --version --> La version del git
-git help --> La ayuda resumida de git
-git help comando --> La ayuda especificada por cada comando asignado
-git config --global user.name "nombre" --> colocar como variable global tu nombre para cada commit, identificación
-git config --global user.email "nombre@gmail.com" --> colocar como variable global tu email para cada commit, identificación
-git config --global -e --> para ver todas las configuraciones globales  ** para salir=":q (enter)"
-git init --> Iniciando el proyecto adentro de la carpeta
-git status --> El estado del proyecto
-git status -s --> mejor forma de status sin cabezera
-git status -s -b --> mejor forma de status con cabezera (ideal)
-git add . --> agregar todos los archivos
-git commit -m "primer commit" --> commit para agregar los archivos, agregar un mensaje significativo 
-git checkout -- . --> recupera todo el archivo
-git log --> para ver los cambios que se guardaron por commit
-git log --oneline --> hash corto y la descripcion de la rama y mejora el orden y manera corta
-git log --oneline --decorate --all --graph -> hash corto y la mejor forma de ver git log por ramas (ideal)
-git add -A --> agregar todos los archivos
-git reset archivo --> excluir archivos del add al status
-git add -all --> agregar todos los archivos
-git add "*.txt" --> agregar todos los archivos txt del proyecto
-git add *txt --> agregar todos los archivos txt del directorio actual
-git add pdf/*.pdf --> agrega todos los archivos pdf dentro de la carpeta pdf
-git add pdf/ --> agregar todos los archivos dentro de la carpeta pdf
-git config --global alias.lg "log --oneline --decorate --all --graph" --> todo eso representa git lg
-git config --global alias.s "status -s -b" --> todo eso representa git s
-git config --global -l --> listado modo seguro sin escritura
-git diff --> los cambios que hubieron, listado de modificaciones entre commit
-git diff --stage --> los cambios que hubieron y lo pusimos con git add
-git reset HEAH nombre del archivo --> sacar archivo para que no este en el add
-git checkout -- nombre del archivo --> regresa todo como estaba un tiempo antes
-git commit --amend -m "actualizar mensaje" --> cambiar el mensaje del commit
-git reset --soft HEAD nombre del archivo --> para hacer cambios sin modificar otro commit adicional
-git reset --soft HEAD^ --> lo mismo pero apunta al ultimo commit que hicimos
-git commit -am "mensaje" --> hacerle un add y commit a la ves
-git commit --> letra a para bajar y escriban, para salir esc + :wq + enter
-git reset --soft ID --> 
-git reset --mixed ID --> regresa un punto quitando sus commits pero no las modificaciones.
-git reset --hard ID --> Regresa un punto no quitando sus commits, pero si eleimina los cambios
-git reflog ->
-git reset --hard ID
-git mv <nombre del archivo> <nombre del archivo nuevo> --> renombrar archivo
-y la historia se mantiene siguiendo el archivo, luego un git commit 
-git rm <nombre del archivo>, para borrar archivo, --> luego un git commi para confirmar el borrado y puede regresar en el tiempo porque el registro se mantiene
-cuando cambias el nombre manual, git add -u, luego agregas con git add -A y luego el commit.
-si lo borras manualmente, git add -u -> git commit y luego se borra siguiendo el registro.
--> .gitignore
- -> se escriba adentro todos los archivos que no se quieran hacer seguimiento
-  -> *log , carpeta/, luego se agrega el .gitignore
-git branch <nombre de la rama> --> crear una rama en git
-git branch --> ver las ramas
-git checkout <nombre de rama> --> nos movemos a esa rama
-git diff <nombre de rama1> <nombre de rama2> --> difeencias entre las ramas
-git merge <nombre de la rama> --> te mueves al master y acoplas la rama2 a la rama master
-git branch -d <nombre de la rama> --> eliminar la rama
-git checkout -b <nombre de la rama> --> crear y moverte a esa rama
-git tag <nombre del tag> --> crear un tag
-git tag -d <nombre del tag> --> para borrar un tag
-git tag -a <nombre de version o nombre de tag> -m "lo que desea que vaya en el mensaje"
-git tag -a <nombre de version o nombre de tag> ID -m "lo que desea que vaya"
-git tag --> para ver todos los tags
-git show <nombre de tag> --> para ver mejor la descripcion del tag
-git stash --> poniendolo en reserva == git stash save
-git stash list --> listado de stash
-git stash pop --> extrae todos los cambios pendientes y elimina los stash
-git stash drop --> borrar el ultimo registro del stash
-git stash apply --> restaura el ultimo stash
-git stash apply ID --> restaura el stash con ese ID
-git stash drop ID --> borrar el stash con ese ID
-git stash clear --> borra las entradas en el stash
-git show stash@{numero} --> ver mas informacion acerca de un stash
-git stash save "mensaje" --> agregar stash con mensaje
+========================================
+        GUIA DE COMANDOS GIT
+========================================
 
+----------------------------------------
+CONFIGURACION INICIAL
+----------------------------------------
+git --version                                       --> version instalada de git
+git help                                            --> ayuda resumida de git
+git help <comando>                                  --> ayuda especifica de un comando
+git config --global user.name "nombre"              --> nombre global para identificacion en commits
+git config --global user.email "email@gmail.com"    --> email global para identificacion en commits
+git config --global -e                              --> ver todas las configuraciones globales (salir: :q + enter)
+git config --global -l                              --> listado de configuraciones (solo lectura)
 
+ALIAS RECOMENDADOS:
+git config --global alias.lg "log --oneline --decorate --all --graph"  --> usa "git lg"
+git config --global alias.s "status -s -b"                             --> usa "git s"
 
+----------------------------------------
+INICIAR Y ESTADO DEL PROYECTO
+----------------------------------------
+git init                    --> inicializa un repositorio en la carpeta actual
+git status                  --> estado del proyecto
+git status -s               --> estado resumido sin cabecera
+git status -s -b            --> estado resumido con cabecera (IDEAL)
+
+----------------------------------------
+AGREGAR ARCHIVOS (STAGING)
+----------------------------------------
+git add .                   --> agrega todos los archivos
+git add -A                  --> agrega todos los archivos
+git add --all               --> agrega todos los archivos
+git add "*.txt"             --> agrega todos los .txt del proyecto
+git add *.txt               --> agrega todos los .txt del directorio actual
+git add pdf/*.pdf           --> agrega todos los .pdf dentro de la carpeta pdf/
+git add pdf/                --> agrega todos los archivos dentro de la carpeta pdf/
+git reset <archivo>         --> excluye un archivo del staging (deshace el add)
+git reset HEAD <archivo>    --> saca un archivo del staging sin perder cambios
+
+----------------------------------------
+COMMITS
+----------------------------------------
+git commit -m "mensaje"         --> commit con mensaje
+git commit -am "mensaje"        --> add + commit en un solo paso (solo archivos tracked)
+git commit --amend -m "mensaje" --> corrige el mensaje del ultimo commit
+git commit                      --> abre editor (A para escribir, ESC + :wq + enter para guardar y salir)
+
+git log                                     --> historial de commits
+git log --oneline                           --> historial resumido (hash corto + descripcion)
+git log --oneline --decorate --all --graph  --> historial con ramas en grafico (IDEAL)
+
+----------------------------------------
+DESHACER CAMBIOS
+----------------------------------------
+git checkout -- .               --> recupera todos los archivos al ultimo commit
+git checkout -- <archivo>       --> recupera un archivo especifico al ultimo commit
+git diff                        --> muestra cambios no agregados al staging
+git diff --staged               --> muestra cambios que ya estan en staging (git add)
+
+git reset --soft HEAD^          --> deshace el ultimo commit, conserva los cambios en staging
+git reset --soft <ID>           --> regresa a ese commit conservando los cambios
+git reset --mixed <ID>          --> regresa a ese commit quitando staging pero no los cambios
+git reset --hard <ID>           --> regresa a ese commit eliminando todos los cambios (CUIDADO!)
+
+git reflog                      --> historial completo de movimientos (util para recuperar)
+git reset --hard <ID>           --> usado despues de reflog para recuperar un estado
+
+----------------------------------------
+RENOMBRAR Y ELIMINAR ARCHIVOS
+----------------------------------------
+git mv <nombre_actual> <nombre_nuevo>   --> renombra un archivo (el historial se mantiene)
+git rm <archivo>                        --> elimina un archivo del repo (luego hacer commit)
+
+Si renombras manualmente:
+  git add -u      --> registra el cambio de nombre
+  git add -A      --> agrega el archivo nuevo
+  git commit -m "mensaje"
+
+Si borras manualmente:
+  git add -u      --> registra el borrado
+  git commit -m "mensaje"
+
+----------------------------------------
+.GITIGNORE
+----------------------------------------
+Crear un archivo llamado ".gitignore" en la raiz del proyecto.
+Escribir adentro los archivos o carpetas a ignorar:
+
+  *.log           --> ignora todos los archivos .log
+  carpeta/        --> ignora toda una carpeta
+  archivo.txt     --> ignora un archivo especifico
+
+Luego agregar el .gitignore al repo:
+  git add .gitignore
+  git commit -m "agregar gitignore"
+
+----------------------------------------
+RAMAS (BRANCHES)
+----------------------------------------
+git branch                          --> ver todas las ramas
+git branch <nombre>                 --> crear una rama
+git checkout <nombre>               --> moverse a esa rama
+git checkout -b <nombre>            --> crear y moverse a la rama en un paso
+git diff <rama1> <rama2>            --> ver diferencias entre dos ramas
+git merge <nombre>                  --> fusionar rama al master (pararse en master primero)
+git branch -d <nombre>              --> eliminar una rama
+
+----------------------------------------
+TAGS (ETIQUETAS)
+----------------------------------------
+git tag                                             --> ver todos los tags
+git tag <nombre>                                    --> crear un tag simple
+git tag -d <nombre>                                 --> eliminar un tag
+git tag -a <version> -m "mensaje"                   --> tag con anotacion
+git tag -a <version> <ID> -m "mensaje"              --> tag con anotacion en un commit especifico
+git show <nombre>                                   --> ver detalle de un tag
+
+----------------------------------------
+STASH (CAMBIOS EN RESERVA)
+----------------------------------------
+git stash                       --> guarda los cambios actuales en reserva
+git stash save "mensaje"        --> guarda el stash con un mensaje descriptivo
+git stash list                  --> lista todos los stash guardados
+git stash pop                   --> aplica el ultimo stash y lo elimina de la lista
+git stash apply                 --> aplica el ultimo stash sin eliminarlo
+git stash apply <ID>            --> aplica un stash especifico por ID
+git stash drop                  --> elimina el ultimo stash
+git stash drop <ID>             --> elimina un stash especifico
+git stash clear                 --> borra todos los stash guardados
+git show stash@{numero}         --> ver mas informacion de un stash especifico
+
+========================================
