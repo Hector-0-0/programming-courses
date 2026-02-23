@@ -1,0 +1,87 @@
+========================================
+     GUIA DE COMANDOS LINUX / BASH
+========================================
+
+----------------------------------------
+PRIMEROS PASOS
+----------------------------------------
+echo "texto"        --> imprime texto en la terminal
+echo $SHELL         --> muestra la shell que estamos usando
+echo $0             --> otra forma de ver la shell activa (bash, zsh...)
+
+----------------------------------------
+ORIENTACION Y NAVEGACION
+----------------------------------------
+pwd                 --> muestra el directorio actual
+ls                  --> lista directorios y archivos
+ls -l               --> lista en formato detallado
+ls -a               --> muestra archivos y directorios ocultos
+ls -lh              --> formato detallado con tamaños legibles (KB, MB...)
+cd <path>           --> cambia al directorio indicado
+cd ..               --> sube al directorio superior inmediato
+cd .                --> hace referencia al directorio actual
+cd /                --> va al directorio raiz del sistema
+cd ../../..         --> sube varios niveles de directorios
+cd ~                --> vuelve al home del usuario
+
+----------------------------------------
+COMANDOS BASICOS DEL SISTEMA
+----------------------------------------
+whoami              --> nombre del usuario actual
+cal                 --> calendario del sistema
+date                --> fecha y hora actual
+uptime              --> tiempo que lleva encendido el sistema
+hostname            --> nombre del equipo
+uname               --> nombre del kernel
+uname -a            --> informacion detallada del sistema
+clear               --> limpia la terminal
+
+----------------------------------------
+ANATOMIA DE UN COMANDO
+----------------------------------------
+comando [opciones] [argumento]
+
+Ejemplo:
+  ls -l /home/usuario
+  ^cmd ^opcion ^argumento
+
+----------------------------------------
+DOCUMENTACION Y AYUDA
+----------------------------------------
+man <comando>       --> abre el manual completo del comando
+<comando> --help    --> muestra ayuda rapida
+<comando> -h        --> version corta de la ayuda
+
+----------------------------------------
+GESTION DE ARCHIVOS Y DIRECTORIOS
+----------------------------------------
+mkdir <nombre>              --> crea un directorio
+rmdir <nombre>              --> elimina un directorio vacio
+rm -r <nombre>              --> elimina un directorio de forma recursiva
+cp <origen> <destino>       --> copia archivos o directorios
+cp -r <origen> <destino>    --> copia de forma recursiva (estructura completa)
+cp -a <origen> <destino>    --> copia preservando todos los atributos
+mv <origen> <destino>       --> mueve o renombra archivos y directorios
+rm <archivo>                --> elimina un archivo
+rm -ri <archivo>            --> elimina pidiendo confirmacion
+rm -rf <archivo>            --> eliminacion forzada sin confirmacion (CUIDADO!)
+
+----------------------------------------
+WILDCARDS (COMODINES)
+----------------------------------------
+*   --> cero o mas caracteres    ej: ls *.txt
+?   --> exactamente un caracter  ej: ls file?.txt
+
+----------------------------------------
+LISTADOS AVANZADOS
+----------------------------------------
+tree                            --> muestra el arbol de directorios
+tree -I 'nombre'                --> arbol ignorando ciertos archivos/directorios
+find <directorio> -name 'nombre'--> busca archivos o directorios por nombre
+
+Ejemplos:
+  tree -I 'node_modules'
+  find /home/usuario -name '*.log'
+  find . -name 'config.json'
+
+========================================
