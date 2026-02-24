@@ -75,13 +75,99 @@ WILDCARDS (COMODINES)
 ----------------------------------------
 LISTADOS AVANZADOS
 ----------------------------------------
-tree                            --> muestra el arbol de directorios
-tree -I 'nombre'                --> arbol ignorando ciertos archivos/directorios
-find <directorio> -name 'nombre'--> busca archivos o directorios por nombre
+tree                              --> muestra el arbol de directorios
+tree -I 'nombre'                  --> arbol ignorando ciertos archivos/directorios
+find <directorio> -name 'nombre'  --> busca archivos o directorios por nombre
 
 Ejemplos:
   tree -I 'node_modules'
   find /home/usuario -name '*.log'
   find . -name 'config.json'
+
+----------------------------------------
+LECTURA DE ARCHIVOS
+----------------------------------------
+cat <archivo>       --> lee archivos cortos (muestra todo el contenido)
+less <archivo>      --> lee archivos largos (modo visualizacion, q para salir)
+more <archivo>      --> similar a less, avanza pagina a pagina
+head -n <archivo>   --> muestra las n primeras lineas (10 por defecto)
+tail -n <archivo>   --> muestra las n ultimas lineas (10 por defecto)
+
+----------------------------------------
+BUSQUEDA Y RECUENTO
+----------------------------------------
+grep "cadena" <archivo>         --> busca cadena dentro de archivo
+grep -i "cadena" <archivo>      --> busqueda sin distinguir mayusculas
+grep -r "cadena" <directorio>   --> busqueda recursiva dentro del directorio
+wc <archivo>                    --> cuenta lineas, palabras y bytes
+wc -l <archivo>                 --> solo cuenta lineas
+wc -w <archivo>                 --> solo cuenta palabras
+wc -c <archivo>                 --> solo cuenta bytes
+
+----------------------------------------
+REDIRECCIONES
+----------------------------------------
+>   --> sobreescribe un archivo con la salida del comando
+        ej: ls > lista.txt
+>>  --> agrega al final del archivo sin sobreescribir
+        ej: echo "hola" >> saludo.txt
+<   --> redireccionamiento de entrada (el archivo actua como input)
+        ej: wc -l < archivo.txt
+|   --> pipe: conecta la salida de un comando con la entrada de otro
+        ej: cat archivo.txt | grep "error"
+
+----------------------------------------
+VARIABLES DE ENTORNO
+----------------------------------------
+Variables globales (disponibles en todo el sistema):
+  $HOME               --> directorio home del usuario
+  $PATH               --> rutas donde el sistema busca ejecutables
+  export NAME="valor" --> crea o modifica una variable global
+  $NAME               --> accede al valor de la variable
+
+Variables locales (solo disponibles en la sesion actual):
+  name="valor"        --> crea una variable local
+  $name               --> accede al valor de la variable local
+
+----------------------------------------
+EDITORES BASICOS
+----------------------------------------
+NANO (editor sencillo, recomendado para principiantes):
+  nano <archivo>      --> abre o crea un archivo con nano
+
+  Comandos dentro de nano:
+  Ctrl + O            --> guarda el archivo (Write Out)
+  Ctrl + X            --> sale del editor
+  Ctrl + K            --> corta la linea actual
+  Ctrl + U            --> pega la linea cortada
+  Ctrl + W            --> busca texto en el archivo
+  Ctrl + G            --> muestra la ayuda
+  Ctrl + A            --> va al inicio de la linea
+  Ctrl + E            --> va al final de la linea
+
+VIM (editor avanzado, muy potente):
+  vim <archivo>       --> abre o crea un archivo con vim
+
+  Modos de vim:
+  Normal              --> modo por defecto al abrir (navegar y ejecutar comandos)
+  Insercion           --> modo para escribir texto
+  Visual              --> modo para seleccionar texto
+
+  Comandos basicos:
+  i                   --> entra al modo insercion (antes del cursor)
+  a                   --> entra al modo insercion (despues del cursor)
+  Esc                 --> vuelve al modo normal
+  :w                  --> guarda el archivo
+  :q                  --> sale de vim
+  :wq                 --> guarda y sale
+  :q!                 --> sale sin guardar (forzado)
+  dd                  --> elimina la linea actual
+  yy                  --> copia la linea actual
+  p                   --> pega la linea copiada
+  u                   --> deshace el ultimo cambio
+  /texto              --> busca "texto" en el archivo
+  n                   --> salta a la siguiente coincidencia de busqueda
+  gg                  --> va al inicio del archivo
+  G                   --> va al final del archivo
 
 ========================================
