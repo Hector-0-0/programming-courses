@@ -170,4 +170,58 @@ VIM (editor avanzado, muy potente):
   gg                  --> va al inicio del archivo
   G                   --> va al final del archivo
 
+----------------------------------------
+ADMINISTRACION DEL SISTEMA
+----------------------------------------
+Tipos de permiso:
+  r (read)            --> lectura    = 4
+  w (write)           --> escritura  = 2
+  x (execute)         --> ejecucion  = 1
+
+Tipos de usuario:
+  u                   --> usuario propietario
+  g                   --> grupo
+  o                   --> otros
+  a                   --> todos (u + g + o)
+
+ls -l <archivo>       --> ver permisos de un archivo
+ls -ld <directorio>   --> ver permisos de un directorio
+
+Anatomia de los permisos:
+  [-][rw-][r--][r--]
+   1   2    3    4
+
+  Bloque 1 - tipo de archivo:
+    -  --> archivo normal
+    d  --> directorio
+    l  --> enlace simbolico
+    b  --> dispositivo de bloque
+
+  Bloque 2 --> permisos del usuario propietario
+  Bloque 3 --> permisos del grupo
+  Bloque 4 --> permisos de otros usuarios
+
+Modificacion de permisos:
+  chmod u+x <archivo>         --> añade permiso de ejecucion al usuario
+  chmod u-x <archivo>         --> quita permiso de ejecucion al usuario
+  chmod 755 <archivo>         --> asigna permisos en formato numerico
+  chmod -R 755 <directorio>   --> aplica permisos de forma recursiva
+
+Cambiar propietario y grupo:
+  chown <user> <archivo>            --> cambia el propietario
+  chown <user>:<grupo> <archivo>    --> cambia propietario y grupo
+  chown -R <user>:<grupo> <dir>     --> cambio recursivo en directorio
+
+Mascara de permisos (umask):
+  umask                       --> muestra la mascara actual (default: 022)
+
+  Calculo de permisos efectivos:
+  Directorio:  777 - 022 = 755  -->  drwxr-xr-x
+  Archivo:     666 - 022 = 644  -->  -rw-r--r--
+
+Superusuario:
+  sudo <comando>      --> ejecuta un comando como superusuario
+  sudo su             --> cambia al usuario root temporalmente
+  su <usuario>        --> cambia a otro usuario del sistema
+
 ========================================
