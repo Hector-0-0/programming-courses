@@ -1,342 +1,634 @@
-========================================
-     GUIA DE COMANDOS LINUX / BASH
-========================================
+================================================================
+           GUÍA DE COMANDOS LINUX / BASH
+================================================================
 
-----------------------------------------
-PRIMEROS PASOS
-----------------------------------------
-echo "texto"        --> imprime texto en la terminal
-echo $SHELL         --> muestra la shell que estamos usando
-echo $0             --> otra forma de ver la shell activa (bash, zsh...)
+----------------------------------------------------------------
+ 1. PRIMEROS PASOS
+----------------------------------------------------------------
+echo "texto"    → imprime texto en la terminal
+echo $SHELL     → muestra la shell activa (también: echo $0)
 
-----------------------------------------
-ORIENTACION Y NAVEGACION
-----------------------------------------
-pwd                 --> muestra el directorio actual
-ls                  --> lista directorios y archivos
-ls -l               --> lista en formato detallado
-ls -a               --> muestra archivos y directorios ocultos
-ls -lh              --> formato detallado con tamaños legibles (KB, MB...)
-cd <path>           --> cambia al directorio indicado
-cd ..               --> sube al directorio superior inmediato
-cd .                --> hace referencia al directorio actual
-cd /                --> va al directorio raiz del sistema
-cd ../../..         --> sube varios niveles de directorios
-cd ~                --> vuelve al home del usuario
+----------------------------------------------------------------
+ 2. NAVEGACIÓN
+----------------------------------------------------------------
+pwd             → directorio actual
+ls              → lista archivos y directorios
+ls -l           → formato detallado
+ls -a           → muestra archivos ocultos
+ls -lh          → detallado con tamaños legibles (KB, MB...)
+cd <path>       → cambia al directorio indicado
+cd ..           → sube un nivel
+cd ../../..     → sube varios niveles
+cd /            → va al directorio raíz
+cd ~            → va al home del usuario
 
-----------------------------------------
-COMANDOS BASICOS DEL SISTEMA
-----------------------------------------
-whoami              --> nombre del usuario actual
-cal                 --> calendario del sistema
-date                --> fecha y hora actual
-uptime              --> tiempo que lleva encendido el sistema
-hostname            --> nombre del equipo
-uname               --> nombre del kernel
-uname -a            --> informacion detallada del sistema
-clear               --> limpia la terminal
+----------------------------------------------------------------
+ 3. COMANDOS DEL SISTEMA
+----------------------------------------------------------------
+whoami          → usuario actual
+date            → fecha y hora
+cal             → calendario
+uptime          → tiempo encendido
+hostname        → nombre del equipo
+uname -a        → información detallada del sistema
+clear           → limpia la terminal
 
-----------------------------------------
-ANATOMIA DE UN COMANDO
-----------------------------------------
+----------------------------------------------------------------
+ 4. ANATOMÍA DE UN COMANDO
+----------------------------------------------------------------
 comando [opciones] [argumento]
+Ejemplo:  ls -l /home/usuario
+          ^cmd ^op  ^argumento
 
-Ejemplo:
-  ls -l /home/usuario
-  ^cmd ^opcion ^argumento
+----------------------------------------------------------------
+ 5. AYUDA Y DOCUMENTACIÓN
+----------------------------------------------------------------
+man <comando>        → manual completo
+<comando> --help     → ayuda rápida
+<comando> -h         → versión corta de la ayuda
 
-----------------------------------------
-DOCUMENTACION Y AYUDA
-----------------------------------------
-man <comando>       --> abre el manual completo del comando
-<comando> --help    --> muestra ayuda rapida
-<comando> -h        --> version corta de la ayuda
+----------------------------------------------------------------
+ 6. GESTIÓN DE ARCHIVOS Y DIRECTORIOS
+----------------------------------------------------------------
+touch <nombre>              → crea un archivo vacío
+mkdir <nombre>              → crea un directorio
+rmdir <nombre>              → elimina un directorio vacío
+rm <archivo>                → elimina un archivo
+rm -r <nombre>              → elimina directorio de forma recursiva
+rm -ri <nombre>             → elimina pidiendo confirmación
+rm -rf <nombre>             → eliminación forzada sin confirmación ⚠️
+cp <origen> <destino>       → copia archivo
+cp -r <origen> <destino>    → copia recursiva (estructura completa)
+cp -a <origen> <destino>    → copia preservando todos los atributos
+mv <origen> <destino>       → mueve o renombra
 
-----------------------------------------
-GESTION DE ARCHIVOS Y DIRECTORIOS
-----------------------------------------
-mkdir <nombre>              --> crea un directorio
-rmdir <nombre>              --> elimina un directorio vacio
-rm -r <nombre>              --> elimina un directorio de forma recursiva
-cp <origen> <destino>       --> copia archivos o directorios
-cp -r <origen> <destino>    --> copia de forma recursiva (estructura completa)
-cp -a <origen> <destino>    --> copia preservando todos los atributos
-mv <origen> <destino>       --> mueve o renombra archivos y directorios
-rm <archivo>                --> elimina un archivo
-rm -ri <archivo>            --> elimina pidiendo confirmacion
-rm -rf <archivo>            --> eliminacion forzada sin confirmacion (CUIDADO!)
+----------------------------------------------------------------
+ 7. WILDCARDS (COMODINES)
+----------------------------------------------------------------
+*   → cero o más caracteres    ej: ls *.txt
+?   → exactamente un carácter  ej: ls file?.txt
 
-----------------------------------------
-WILDCARDS (COMODINES)
-----------------------------------------
-*   --> cero o mas caracteres    ej: ls *.txt
-?   --> exactamente un caracter  ej: ls file?.txt
-
-----------------------------------------
-LISTADOS AVANZADOS
-----------------------------------------
-tree                              --> muestra el arbol de directorios
-tree -I 'nombre'                  --> arbol ignorando ciertos archivos/directorios
-find <directorio> -name 'nombre'  --> busca archivos o directorios por nombre
+----------------------------------------------------------------
+ 8. BÚSQUEDA Y LISTADOS AVANZADOS
+----------------------------------------------------------------
+tree                              → árbol de directorios
+tree -I 'nombre'                  → árbol ignorando archivos/dirs
+find <directorio> -name 'nombre'  → busca por nombre
 
 Ejemplos:
-  tree -I 'node_modules'
   find /home/usuario -name '*.log'
   find . -name 'config.json'
+  tree -I 'node_modules'
 
-----------------------------------------
-LECTURA DE ARCHIVOS
-----------------------------------------
-cat <archivo>       --> lee archivos cortos (muestra todo el contenido)
-less <archivo>      --> lee archivos largos (modo visualizacion, q para salir)
-more <archivo>      --> similar a less, avanza pagina a pagina
-head -n <archivo>   --> muestra las n primeras lineas (10 por defecto)
-tail -n <archivo>   --> muestra las n ultimas lineas (10 por defecto)
+----------------------------------------------------------------
+ 9. LECTURA DE ARCHIVOS
+----------------------------------------------------------------
+cat <archivo>       → muestra todo el contenido (archivos cortos)
+less <archivo>      → visualización paginada (q para salir)
+head -n <archivo>   → primeras n líneas (10 por defecto)
+tail -n <archivo>   → últimas n líneas (10 por defecto)
 
-----------------------------------------
-BUSQUEDA Y RECUENTO
-----------------------------------------
-grep "cadena" <archivo>         --> busca cadena dentro de archivo
-grep -i "cadena" <archivo>      --> busqueda sin distinguir mayusculas
-grep -r "cadena" <directorio>   --> busqueda recursiva dentro del directorio
-wc <archivo>                    --> cuenta lineas, palabras y bytes
-wc -l <archivo>                 --> solo cuenta lineas
-wc -w <archivo>                 --> solo cuenta palabras
-wc -c <archivo>                 --> solo cuenta bytes
+----------------------------------------------------------------
+ 10. BÚSQUEDA Y RECUENTO
+----------------------------------------------------------------
+grep "cadena" <archivo>         → busca cadena en archivo
+grep -i "cadena" <archivo>      → sin distinguir mayúsculas
+grep -r "cadena" <directorio>   → búsqueda recursiva
+wc <archivo>                    → cuenta líneas, palabras y bytes
+wc -l / -w / -c <archivo>       → solo líneas / palabras / bytes
 
-----------------------------------------
-REDIRECCIONES
-----------------------------------------
->   --> sobreescribe un archivo con la salida del comando
-        ej: ls > lista.txt
->>  --> agrega al final del archivo sin sobreescribir
-        ej: echo "hola" >> saludo.txt
-<   --> redireccionamiento de entrada (el archivo actua como input)
-        ej: wc -l < archivo.txt
-|   --> pipe: conecta la salida de un comando con la entrada de otro
-        ej: cat archivo.txt | grep "error"
+----------------------------------------------------------------
+ 11. REDIRECCIONES
+----------------------------------------------------------------
+>    → sobreescribe archivo con la salida     ej: ls > lista.txt
+>>   → agrega al final sin sobreescribir      ej: echo "hola" >> saludo.txt
+<    → el archivo actúa como input            ej: wc -l < archivo.txt
+|    → pipe: conecta salida con entrada       ej: cat archivo.txt | grep "error"
 
-----------------------------------------
-VARIABLES DE ENTORNO
-----------------------------------------
-Variables globales (disponibles en todo el sistema):
-  $HOME               --> directorio home del usuario
-  $PATH               --> rutas donde el sistema busca ejecutables
-  export NAME="valor" --> crea o modifica una variable global
-  $NAME               --> accede al valor de la variable
+----------------------------------------------------------------
+ 12. VARIABLES DE ENTORNO
+----------------------------------------------------------------
+# Globales (disponibles en todo el sistema):
+$HOME                → directorio home del usuario
+$PATH                → rutas donde el sistema busca ejecutables
+export NAME="valor"  → crea o modifica una variable global
+$NAME                → accede al valor
 
-Variables locales (solo disponibles en la sesion actual):
-  name="valor"        --> crea una variable local
-  $name               --> accede al valor de la variable local
+# Locales (solo en la sesión actual):
+name="valor"         → crea variable local
+$name                → accede al valor
 
-----------------------------------------
-EDITORES BASICOS
-----------------------------------------
-NANO (editor sencillo, recomendado para principiantes):
-  nano <archivo>      --> abre o crea un archivo con nano
+----------------------------------------------------------------
+ 13. EDITORES DE TEXTO
+----------------------------------------------------------------
+## NANO (recomendado para principiantes)
+nano <archivo>      → abre o crea un archivo
 
-  Comandos dentro de nano:
-  Ctrl + O            --> guarda el archivo (Write Out)
-  Ctrl + X            --> sale del editor
-  Ctrl + K            --> corta la linea actual
-  Ctrl + U            --> pega la linea cortada
-  Ctrl + W            --> busca texto en el archivo
-  Ctrl + G            --> muestra la ayuda
-  Ctrl + A            --> va al inicio de la linea
-  Ctrl + E            --> va al final de la linea
+  Ctrl + O  → guarda          Ctrl + X  → sale
+  Ctrl + K  → corta línea     Ctrl + U  → pega línea
+  Ctrl + W  → busca           Ctrl + G  → ayuda
+  Ctrl + A  → inicio línea    Ctrl + E  → fin de línea
 
-VIM (editor avanzado, muy potente):
-  vim <archivo>       --> abre o crea un archivo con vim
+## VIM (editor avanzado)
+vim <archivo>       → abre o crea un archivo
 
-  Modos de vim:
-  Normal              --> modo por defecto al abrir (navegar y ejecutar comandos)
-  Insercion           --> modo para escribir texto
-  Visual              --> modo para seleccionar texto
+  Modos:
+    Normal     → por defecto (navegar y ejecutar comandos)
+    Inserción  → escribir texto (entrar con i o a)
+    Visual     → seleccionar texto
 
-  Comandos basicos:
-  i                   --> entra al modo insercion (antes del cursor)
-  a                   --> entra al modo insercion (despues del cursor)
-  Esc                 --> vuelve al modo normal
-  :w                  --> guarda el archivo
-  :q                  --> sale de vim
-  :wq                 --> guarda y sale
-  :q!                 --> sale sin guardar (forzado)
-  dd                  --> elimina la linea actual
-  yy                  --> copia la linea actual
-  p                   --> pega la linea copiada
-  u                   --> deshace el ultimo cambio
-  /texto              --> busca "texto" en el archivo
-  n                   --> salta a la siguiente coincidencia de busqueda
-  gg                  --> va al inicio del archivo
-  G                   --> va al final del archivo
+  Comandos:
+    i / a    → inserción antes/después del cursor
+    Esc      → vuelve al modo normal
+    :w       → guarda
+    :q       → sale
+    :wq      → guarda y sale
+    :q!      → sale sin guardar
+    dd       → elimina línea      yy  → copia línea
+    p        → pega               u   → deshace cambio
+    /texto   → busca              n   → siguiente coincidencia
+    gg       → inicio archivo     G   → fin del archivo
 
-----------------------------------------
-ADMINISTRACION DEL SISTEMA
-----------------------------------------
-Tipos de permiso:
-  r (read)            --> lectura    = 4
-  w (write)           --> escritura  = 2
-  x (execute)         --> ejecucion  = 1
+----------------------------------------------------------------
+ 14. ADMINISTRACIÓN: PERMISOS
+----------------------------------------------------------------
+# Tipos de permiso:
+  r (read)    = 4  →  lectura
+  w (write)   = 2  →  escritura
+  x (execute) = 1  →  ejecución
 
-Tipos de usuario:
-  u                   --> usuario propietario
-  g                   --> grupo
-  o                   --> otros
-  a                   --> todos (u + g + o)
+# Tipos de usuario:
+  u → propietario   g → grupo   o → otros   a → todos
 
-ls -l <archivo>       --> ver permisos de un archivo
-ls -ld <directorio>   --> ver permisos de un directorio
+# Ver permisos:
+ls -l <archivo>          → permisos de archivo
+ls -ld <directorio>      → permisos de directorio
 
-Anatomia de los permisos:
-  [-][rw-][r--][r--]
-   1   2    3    4
+# Anatomía: [-][rw-][r--][r--]
+#            tipo  u    g    o
+#   Tipos: - archivo  d directorio  l enlace  b dispositivo
 
-  Bloque 1 - tipo de archivo:
-    -  --> archivo normal
-    d  --> directorio
-    l  --> enlace simbolico
-    b  --> dispositivo de bloque
+# Modificar permisos:
+chmod u+x <archivo>         → añade ejecución al propietario
+chmod u-x <archivo>         → quita ejecución al propietario
+chmod 755 <archivo>         → formato numérico
+chmod -R 755 <directorio>   → recursivo
 
-  Bloque 2 --> permisos del usuario propietario
-  Bloque 3 --> permisos del grupo
-  Bloque 4 --> permisos de otros usuarios
+# Cambiar propietario:
+chown <user> <archivo>              → cambia propietario
+chown <user>:<grupo> <archivo>      → cambia propietario y grupo
+chown -R <user>:<grupo> <dir>       → recursivo
 
-Modificacion de permisos:
-  chmod u+x <archivo>         --> añade permiso de ejecucion al usuario
-  chmod u-x <archivo>         --> quita permiso de ejecucion al usuario
-  chmod 755 <archivo>         --> asigna permisos en formato numerico
-  chmod -R 755 <directorio>   --> aplica permisos de forma recursiva
+# umask (máscara de permisos, default 022):
+  Directorio:  777 - 022 = 755  →  drwxr-xr-x
+  Archivo:     666 - 022 = 644  →  -rw-r--r--
 
-Cambiar propietario y grupo:
-  chown <user> <archivo>            --> cambia el propietario
-  chown <user>:<grupo> <archivo>    --> cambia propietario y grupo
-  chown -R <user>:<grupo> <dir>     --> cambio recursivo en directorio
+# Superusuario:
+sudo <comando>      → ejecuta como superusuario
+sudo su             → cambia a root temporalmente
+su <usuario>        → cambia a otro usuario
 
-Mascara de permisos (umask):
-  umask                       --> muestra la mascara actual (default: 022)
+----------------------------------------------------------------
+ 15. PROCESOS
+----------------------------------------------------------------
+ps              → procesos de la terminal actual
+ps aux          → todos los procesos del sistema
+top             → monitor en tiempo real
+htop            → versión mejorada de top (si está instalado)
 
-  Calculo de permisos efectivos:
-  Directorio:  777 - 022 = 755  -->  drwxr-xr-x
-  Archivo:     666 - 022 = 644  -->  -rw-r--r--
+ps aux | grep <nombre>   → busca proceso por nombre
+pgrep <nombre>           → devuelve el PID del proceso
 
-Superusuario:
-  sudo <comando>      --> ejecuta un comando como superusuario
-  sudo su             --> cambia al usuario root temporalmente
-  su <usuario>        --> cambia a otro usuario del sistema
+  PID   → identificador único del proceso
+  PPID  → identificador del proceso padre
 
-----------------------------------------
-PROCESOS
-----------------------------------------
-ps                  --> muestra procesos actuales de la terminal
-ps aux              --> muestra todos los procesos del sistema
-top                 --> monitor en tiempo real de procesos
-htop                --> version mejorada de top (si esta instalado)
+# Finalizar procesos:
+kill <PID>        → señal SIGTERM (terminación normal)
+kill -9 <PID>     → fuerza terminación (SIGKILL)
+killall <nombre>  → mata todos los procesos con ese nombre
+pkill <nombre>    → termina procesos por nombre
 
-Buscar un proceso:
-  ps aux | grep <nombre>   --> busca un proceso por nombre
-  pgrep <nombre>           --> devuelve el PID del proceso
+# Segundo plano:
+<comando> &   → ejecuta en background
+Ctrl + Z      → suspende proceso actual
+bg            → reanuda en segundo plano
+fg            → trae al primer plano
 
-Identificacion:
-  PID               --> identificador unico del proceso
-  PPID              --> identificador del proceso padre
+# Prioridad:
+nice -n 10 <cmd>    → ejecuta con menor prioridad
+renice 10 <PID>     → cambia prioridad de proceso activo
 
-Finalizar procesos:
-  kill <PID>        --> envia señal SIGTERM (terminacion normal)
-  kill -9 <PID>     --> fuerza la terminacion (SIGKILL)
-  killall <nombre>  --> mata todos los procesos con ese nombre
-  pkill <nombre>    --> termina procesos por nombre
+# Estados: R running  S sleeping  T stopped  Z zombie
 
-Procesos en segundo plano:
-  <comando> &       --> ejecuta un proceso en background
-  Ctrl + Z          --> suspende el proceso actual
-  bg                --> reanuda en segundo plano
-  fg                --> trae al primer plano
+----------------------------------------------------------------
+ 16. JOBS (TRABAJOS)
+----------------------------------------------------------------
+jobs          → lista trabajos activos
+jobs -l       → muestra también el PID
 
-Prioridad de procesos:
-  nice -n 10 <cmd>  --> ejecuta con menor prioridad
-  renice 10 <PID>   --> cambia prioridad de un proceso activo
-
-Estados de procesos:
-  R  --> running
-  S  --> sleeping
-  T  --> stopped
-  Z  --> zombie
-
-----------------------------------------
-TRABAJOS (JOBS)
-----------------------------------------
-Concepto:
-  Job               --> proceso iniciado desde la terminal actual
-
-Ver trabajos:
-  jobs              --> lista trabajos activos
-  jobs -l           --> muestra tambien el PID
-
-Control de trabajos:
-  Ctrl + Z          --> suspende proceso
-  bg %n             --> continua el trabajo n en segundo plano
-  fg %n             --> trae el trabajo n al primer plano
-  disown %n         --> elimina el job de la lista (sigue ejecutandose)
+bg %n         → continúa trabajo n en segundo plano
+fg %n         → trae trabajo n al primer plano
+disown %n     → elimina job de la lista (sigue ejecutándose)
 
 Ejemplo:
   sleep 100 &
   fg %1
 
-----------------------------------------
-HISTORIAL
-----------------------------------------
-history             --> muestra historial completo
-history 20          --> muestra los ultimos 20 comandos
+----------------------------------------------------------------
+ 17. HISTORIAL
+----------------------------------------------------------------
+history        → historial completo
+history 20     → últimos 20 comandos
+history -c     → limpia el historial
 
-Ejecutar desde historial:
-  !n                --> ejecuta el comando numero n
-  !!                --> ejecuta el ultimo comando
-  !texto            --> ejecuta el ultimo comando que empiece con "texto"
+!n             → ejecuta comando número n
+!!             → ejecuta el último comando
+!texto         → ejecuta el último comando que empiece con "texto"
+Ctrl + R       → búsqueda interactiva en historial
 
-Busqueda interactiva:
-  Ctrl + R          --> busca comando en historial
+----------------------------------------------------------------
+ 18. ALIAS
+----------------------------------------------------------------
+alias ll='ls -la'          → crea alias temporal
+alias                      → lista todos los alias
+unalias ll                 → elimina alias
 
-Borrar historial:
-  history -c        --> limpia historial actual
-
-----------------------------------------
-ALIAS
-----------------------------------------
-Concepto:
-  Alias             --> atajo personalizado para un comando largo
-
-Crear alias temporal:
+# Alias permanente (persiste al reiniciar):
+  nano ~/.bashrc            → editar configuración
+  (agregar al final del archivo)
   alias ll='ls -la'
+  source ~/.bashrc          → aplica cambios sin reiniciar
 
-Ver alias:
-  alias
-
-Eliminar alias:
-  unalias ll
-
-Alias permanente:
-  nano ~/.bashrc    --> editar archivo de configuracion
-  (agregar al final)
-    alias ll='ls -la'
-  source ~/.bashrc  --> aplica cambios sin reiniciar
-
-Ejemplos utiles:
+# Ejemplos útiles:
   alias update='sudo apt update && sudo apt upgrade'
   alias cls='clear'
   alias gs='git status'
-  
-----------------------------------------
-ESPACIO EN DISCO
-----------------------------------------
-df                  --> muestra el uso del sistema de archivos
-df -h               --> muestra el uso en formato legible (KB, MB, GB)
 
-du                  --> muestra el uso de espacio de archivos/directorios
-du -h               --> muestra tamaños en formato legible
-du -sh <directorio> --> muestra el tamaño total del directorio
-du -sh *            --> tamaño de cada elemento en el directorio actual
+----------------------------------------------------------------
+ 19. ESPACIO EN DISCO
+----------------------------------------------------------------
+df -h               → uso del disco completo (legible)
+du -h               → uso de espacio de archivos/directorios
+du -sh <directorio> → tamaño total de un directorio
+du -sh *            → tamaño de cada elemento en el directorio actual
 
-Diferencia clave:
-  df -h   --> espacio usado y disponible en el disco completo
-  du -sh  --> espacio que ocupa un archivo o directorio especifico
-========================================
+  df -h  → espacio total del disco
+  du -sh → espacio de un archivo o directorio específico
+
+----------------------------------------------------------------
+ 20. SCRIPTING
+----------------------------------------------------------------
+#!/bin/bash          → shebang: indica que se ejecuta con bash
+
+# Crear y ejecutar:
+  nano script.sh     → crear/editar el script
+  chmod +x script.sh → dar permisos de ejecución
+  ./script.sh        → ejecutar
+
+# Variables:
+  nombre="valor"     → definir
+  echo $nombre       → mostrar
+
+# Aritmética:
+  x=$((5 + 3))       → expansión aritmética (recomendado)
+  let x=5+3          → usando let
+
+# Operadores: + suma  - resta  * multiplicación  / división  % módulo
+
+# Entrada del usuario:
+  read variable
+  echo "Ingresa tu nombre:"
+  read nombre
+
+# Ejemplo completo:
+  #!/bin/bash
+  echo "Ingresa un numero:"
+  read n
+  resultado=$((n * 2))
+  echo "El doble es: $resultado"
+
+----------------------------------------------------------------
+ 21. ARGUMENTOS Y PARÁMETROS
+----------------------------------------------------------------
+# Ejecución con argumentos:
+  ./script.sh uno dos tres
+
+# Parámetros posicionales:
+  $0  → nombre del script
+  $1  → primer argumento
+  $2  → segundo argumento
+  $#  → cantidad de argumentos
+  $@  → todos los argumentos (por separado)
+  $*  → todos los argumentos (como una sola cadena)
+  $$  → PID del script actual
+
+# Ejemplo:
+  #!/bin/bash
+  echo "Script:      $0"
+  echo "1er arg:     $1"
+  echo "Total args:  $#"
+
+----------------------------------------------------------------
+ 22. CONDICIONALES
+----------------------------------------------------------------
+# Sintaxis básica:
+  if [ condición ]; then
+    comandos
+  elif [ condición ]; then
+    comandos
+  else
+    comandos
+  fi
+
+# Operadores de comparación numérica:
+  -eq  → igual            ej: [ $a -eq $b ]
+  -ne  → no igual
+  -gt  → mayor que
+  -lt  → menor que
+  -ge  → mayor o igual
+  -le  → menor o igual
+
+# Operadores de comparación de cadenas:
+  =    → igual             ej: [ "$a" = "$b" ]
+  !=   → no igual
+  -z   → cadena vacía      ej: [ -z "$var" ]
+  -n   → cadena no vacía   ej: [ -n "$var" ]
+
+# Operadores de archivos:
+  -f <archivo>   → existe y es un archivo regular
+  -d <archivo>   → existe y es un directorio
+  -e <archivo>   → existe (sea lo que sea)
+  -r <archivo>   → tiene permiso de lectura
+  -w <archivo>   → tiene permiso de escritura
+  -x <archivo>   → tiene permiso de ejecución
+
+# Operadores lógicos:
+  &&   → AND    ej: [ $a -gt 0 ] && [ $a -lt 10 ]
+  ||   → OR     ej: [ $a -eq 0 ] || [ $a -eq 1 ]
+  !    → NOT    ej: [ ! -f archivo.txt ]
+
+# Ejemplo completo:
+  #!/bin/bash
+  echo "Ingresa tu edad:"
+  read edad
+
+  if [ $edad -ge 18 ]; then
+    echo "Eres mayor de edad"
+  elif [ $edad -gt 0 ]; then
+    echo "Eres menor de edad"
+  else
+    echo "Edad no válida"
+  fi
+
+# Case (alternativa a múltiples if/elif):
+  case $variable in
+    "opcion1") comandos ;;
+    "opcion2") comandos ;;
+    *)         comandos ;;   # default
+  esac
+
+# Ejemplo con case:
+  #!/bin/bash
+  echo "Elige una opción (1/2/3):"
+  read opcion
+
+  case $opcion in
+    1) echo "Elegiste uno" ;;
+    2) echo "Elegiste dos" ;;
+    3) echo "Elegiste tres" ;;
+    *) echo "Opción no válida" ;;
+  esac
+
+----------------------------------------------------------------
+ 23. BUCLES
+----------------------------------------------------------------
+# FOR — iterar sobre una lista de valores:
+  for variable in lista; do
+    comandos
+  done
+
+# Ejemplos for:
+  for i in 1 2 3 4 5; do
+    echo "Número: $i"
+  done
+
+  for i in {1..10}; do        # rango
+    echo $i
+  done
+
+  for i in {0..20..2}; do     # rango con paso
+    echo $i
+  done
+
+  for archivo in *.txt; do    # iterar archivos
+    echo "Procesando: $archivo"
+  done
+
+# FOR estilo C:
+  for (( i=0; i<5; i++ )); do
+    echo $i
+  done
+
+# WHILE — mientras la condición sea verdadera:
+  while [ condición ]; do
+    comandos
+  done
+
+# Ejemplo while:
+  #!/bin/bash
+  contador=1
+  while [ $contador -le 5 ]; do
+    echo "Vuelta: $contador"
+    ((contador++))
+  done
+
+# UNTIL — hasta que la condición sea verdadera (inverso de while):
+  until [ condición ]; do
+    comandos
+  done
+
+# Ejemplo until:
+  contador=1
+  until [ $contador -gt 5 ]; do
+    echo "Vuelta: $contador"
+    ((contador++))
+  done
+
+# Control de bucles:
+  break     → sale del bucle
+  continue  → salta a la siguiente iteración
+
+# Ejemplo con break y continue:
+  for i in {1..10}; do
+    [ $i -eq 4 ] && continue   # salta el 4
+    [ $i -eq 8 ] && break      # para en el 8
+    echo $i
+  done
+
+----------------------------------------------------------------
+ 24. FUNCIONES
+----------------------------------------------------------------
+# Sintaxis:
+  nombre_funcion() {
+    comandos
+  }
+
+# Llamar a una función:
+  nombre_funcion
+
+# Función con parámetros:
+  saludar() {
+    echo "Hola, $1!"           # $1 = primer argumento
+  }
+  saludar "Héctor"             # → Hola, Héctor!
+
+# Función con retorno (return solo acepta 0-255):
+  es_par() {
+    if [ $(($1 % 2)) -eq 0 ]; then
+      return 0    # éxito / verdadero
+    else
+      return 1    # fallo / falso
+    fi
+  }
+
+  es_par 4
+  if [ $? -eq 0 ]; then        # $? captura el return
+    echo "Es par"
+  fi
+
+# Retornar texto con echo:
+  obtener_fecha() {
+    echo $(date +%Y-%m-%d)
+  }
+  fecha=$(obtener_fecha)        # captura la salida
+  echo "Hoy es: $fecha"
+
+# Variables locales dentro de funciones:
+  mi_funcion() {
+    local variable="solo existe aquí"
+    echo $variable
+  }
+
+# Ejemplo completo:
+  #!/bin/bash
+  sumar() {
+    local resultado=$(( $1 + $2 ))
+    echo $resultado
+  }
+
+  total=$(sumar 5 3)
+  echo "La suma es: $total"    # → La suma es: 8
+
+----------------------------------------------------------------
+ 25. MANEJO BÁSICO DE ERRORES
+----------------------------------------------------------------
+# $? — código de salida del último comando:
+  0    → éxito
+  ≠ 0  → error
+
+  ls archivo.txt
+  echo $?          # 0 si existe, 2 si no existe
+
+# Verificar éxito o fallo:
+  if comando; then
+    echo "Éxito"
+  else
+    echo "Error"
+  fi
+
+# Operadores && y || para manejo rápido:
+  mkdir carpeta && echo "Creada con éxito"
+  mkdir carpeta || echo "Error al crear la carpeta"
+
+# set -e — detiene el script si cualquier comando falla:
+  #!/bin/bash
+  set -e
+  cp archivo.txt /destino/    # si falla, el script para aquí
+  echo "Esto no se ejecuta si hay error"
+
+# set -u — error si se usa variable no definida:
+  set -u
+  echo $variable_inexistente   # genera error y para
+
+# Combinación recomendada al inicio del script:
+  set -eu
+
+# Capturar errores con trap:
+  trap "echo 'Algo salió mal'; exit 1" ERR
+
+# Mensajes de error hacia stderr (buena práctica):
+  echo "Error: archivo no encontrado" >&2
+
+# Ejemplo completo con manejo de errores:
+  #!/bin/bash
+  set -eu
+  trap "echo 'Error inesperado en línea $LINENO'; exit 1" ERR
+
+  archivo="datos.txt"
+
+  if [ ! -f "$archivo" ]; then
+    echo "Error: $archivo no existe" >&2
+    exit 1
+  fi
+
+  echo "Procesando $archivo..."
+  cat "$archivo"
+  echo "Listo."
+
+----------------------------------------------------------------
+ 26. CRON JOBS
+----------------------------------------------------------------
+xdg-open .            → abre el directorio actual
+# Cron — programador de tareas en segundo plano
+
+# Ver y editar tareas del usuario actual:
+  crontab -l          → lista las tareas programadas
+  crontab -e          → edita las tareas (abre el editor)
+  crontab -r          → elimina todas las tareas ⚠️
+
+# Sintaxis de una línea cron:
+  * * * * * comando
+  │ │ │ │ │
+  │ │ │ │ └── día de la semana  (0-7, 0 y 7 = domingo)
+  │ │ │ └──── mes               (1-12)
+  │ │ └────── día del mes       (1-31)
+  │ └──────── hora              (0-23)
+  └────────── minuto            (0-59)
+
+# Valores especiales:
+  *     → cualquier valor
+  */n   → cada n unidades        ej: */5 = cada 5 minutos
+  n,m   → valores específicos    ej: 1,15 = minuto 1 y 15
+  n-m   → rango                  ej: 9-17 = de 9 a 17
+
+# Ejemplos:
+  0 8 * * *       → cada día a las 8:00
+  */15 * * * *    → cada 15 minutos
+  0 0 * * 0       → cada domingo a medianoche
+  0 9 * * 1-5     → lunes a viernes a las 9:00
+  0 0 1 * *       → primer día de cada mes a medianoche
+  0 0 1 1 *       → el 1 de enero a medianoche (una vez al año)
+
+# Atajos de tiempo:
+  @reboot         → al iniciar el sistema
+  @hourly         → cada hora         (equivale a: 0 * * * *)
+  @daily          → cada día          (equivale a: 0 0 * * *)
+  @weekly         → cada semana       (equivale a: 0 0 * * 0)
+  @monthly        → cada mes          (equivale a: 0 0 1 * *)
+
+# Redirigir salida (recomendado):
+  0 8 * * * /ruta/script.sh >> /var/log/mi_tarea.log 2>&1
+  #                                                   └→ incluye errores también
+
+# Ejemplo real en crontab -e:
+  # Backup diario a las 2 AM
+  0 2 * * * /home/usuario/scripts/backup.sh >> /home/usuario/logs/backup.log 2>&1
+
+  # Limpiar archivos temporales cada lunes a las 3 AM
+  0 3 * * 1 rm -rf /tmp/mis_temporales/*
+
+# Ver logs del sistema cron:
+  grep CRON /var/log/syslog          → en sistemas Debian/Ubuntu
+  journalctl -u cron                 → con systemd
+
+================================================================
