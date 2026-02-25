@@ -224,4 +224,119 @@ Superusuario:
   sudo su             --> cambia al usuario root temporalmente
   su <usuario>        --> cambia a otro usuario del sistema
 
+----------------------------------------
+PROCESOS
+----------------------------------------
+ps                  --> muestra procesos actuales de la terminal
+ps aux              --> muestra todos los procesos del sistema
+top                 --> monitor en tiempo real de procesos
+htop                --> version mejorada de top (si esta instalado)
+
+Buscar un proceso:
+  ps aux | grep <nombre>   --> busca un proceso por nombre
+  pgrep <nombre>           --> devuelve el PID del proceso
+
+Identificacion:
+  PID               --> identificador unico del proceso
+  PPID              --> identificador del proceso padre
+
+Finalizar procesos:
+  kill <PID>        --> envia señal SIGTERM (terminacion normal)
+  kill -9 <PID>     --> fuerza la terminacion (SIGKILL)
+  killall <nombre>  --> mata todos los procesos con ese nombre
+  pkill <nombre>    --> termina procesos por nombre
+
+Procesos en segundo plano:
+  <comando> &       --> ejecuta un proceso en background
+  Ctrl + Z          --> suspende el proceso actual
+  bg                --> reanuda en segundo plano
+  fg                --> trae al primer plano
+
+Prioridad de procesos:
+  nice -n 10 <cmd>  --> ejecuta con menor prioridad
+  renice 10 <PID>   --> cambia prioridad de un proceso activo
+
+Estados de procesos:
+  R  --> running
+  S  --> sleeping
+  T  --> stopped
+  Z  --> zombie
+
+----------------------------------------
+TRABAJOS (JOBS)
+----------------------------------------
+Concepto:
+  Job               --> proceso iniciado desde la terminal actual
+
+Ver trabajos:
+  jobs              --> lista trabajos activos
+  jobs -l           --> muestra tambien el PID
+
+Control de trabajos:
+  Ctrl + Z          --> suspende proceso
+  bg %n             --> continua el trabajo n en segundo plano
+  fg %n             --> trae el trabajo n al primer plano
+  disown %n         --> elimina el job de la lista (sigue ejecutandose)
+
+Ejemplo:
+  sleep 100 &
+  fg %1
+
+----------------------------------------
+HISTORIAL
+----------------------------------------
+history             --> muestra historial completo
+history 20          --> muestra los ultimos 20 comandos
+
+Ejecutar desde historial:
+  !n                --> ejecuta el comando numero n
+  !!                --> ejecuta el ultimo comando
+  !texto            --> ejecuta el ultimo comando que empiece con "texto"
+
+Busqueda interactiva:
+  Ctrl + R          --> busca comando en historial
+
+Borrar historial:
+  history -c        --> limpia historial actual
+
+----------------------------------------
+ALIAS
+----------------------------------------
+Concepto:
+  Alias             --> atajo personalizado para un comando largo
+
+Crear alias temporal:
+  alias ll='ls -la'
+
+Ver alias:
+  alias
+
+Eliminar alias:
+  unalias ll
+
+Alias permanente:
+  nano ~/.bashrc    --> editar archivo de configuracion
+  (agregar al final)
+    alias ll='ls -la'
+  source ~/.bashrc  --> aplica cambios sin reiniciar
+
+Ejemplos utiles:
+  alias update='sudo apt update && sudo apt upgrade'
+  alias cls='clear'
+  alias gs='git status'
+  
+----------------------------------------
+ESPACIO EN DISCO
+----------------------------------------
+df                  --> muestra el uso del sistema de archivos
+df -h               --> muestra el uso en formato legible (KB, MB, GB)
+
+du                  --> muestra el uso de espacio de archivos/directorios
+du -h               --> muestra tamaños en formato legible
+du -sh <directorio> --> muestra el tamaño total del directorio
+du -sh *            --> tamaño de cada elemento en el directorio actual
+
+Diferencia clave:
+  df -h   --> espacio usado y disponible en el disco completo
+  du -sh  --> espacio que ocupa un archivo o directorio especifico
 ========================================
