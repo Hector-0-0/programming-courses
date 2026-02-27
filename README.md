@@ -13,14 +13,7 @@
 
 ## 📋 Sobre el Proyecto
 
-Repositorio educativo con material de aprendizaje, ejercicios y proyectos prácticos de diferentes lenguajes de programación. Diseñado para estudiantes y desarrolladores que buscan mejorar sus habilidades en programación.
-
-## 🚀 Características
-
-- ✨ Código fuente comentado y documentado
-- 🎯 Ejercicios prácticos por nivel
-- 🔧 Proyectos reales aplicables
-- 📱 Múltiples lenguajes y tecnologías
+Repositorio educativo con material de aprendizaje, ejercicios y proyectos prácticos de diferentes lenguajes de programación. Diseñado para documentar mi progreso y servir de referencia a otros desarrolladores.
 
 ## 💻 Tecnologías
 
@@ -33,62 +26,44 @@ Repositorio educativo con material de aprendizaje, ejercicios y proyectos práct
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-00000F?style=flat&logo=mysql&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
-
-## ⚡ Instalación
-
-```bash
-# Clonar el repositorio
-git clone https://github.com/Hector-0-0/Cursos-programacion.git
-
-# Navegar al directorio
-cd Cursos-programacion
-
-# Explorar los cursos disponibles
-ls -la
-```
-
-## 🎯 Uso
-
-```bash
-# Acceder a un curso específico
-cd curso-[lenguaje]
-
-# Ejemplo: Curso de JavaScript
-cd curso-js
-```
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat&logo=gnubash&logoColor=white)
 
 ## 📚 Cursos Disponibles
 
-- **curso-c++/UNI** - Programación en C++ nivel universitario
-- **curso-git** - Control de versiones con Git
-- **curso-html-css** - Desarrollo web frontend
-- **curso-java/programacion-estructurada** - Java estructurado y POO
-- **curso-js** - JavaScript moderno (ES6+)
-- **curso-node.js** - Backend con Node.js
-- **curso-python** - Python para desarrollo general
-- **curso-sql/mysql** - Bases de datos relacionales
-- **curso-vscode** - Configuración de VS Code
+| Curso | Descripción |
+|-------|-------------|
+| **curso-bash** | Scripting y comandos en Bash |
+| **curso-c++-uni** | Programación en C++ nivel universitario |
+| **curso-git** | Control de versiones con Git |
+| **curso-html-css** | Desarrollo web frontend |
+| **curso-java** | Java estructurado y POO |
+| **curso-js** | JavaScript moderno (ES6+) |
+| **curso-node.js** | Backend con Node.js |
+| **curso-python** | Python para desarrollo general |
+| **curso-sql-mysql** | Bases de datos relacionales |
+| **curso-vscode** | Configuración y productividad en VS Code |
 
-## 🤝 Contribuir
+## 🚀 ¿Cómo usar este repo?
 
-Las contribuciones son bienvenidas. Para cambios importantes:
+Cada carpeta es independiente y corresponde a un curso. Puedes clonar el repo completo o simplemente navegar por las carpetas que te interesen directamente en GitHub.
 
-1. Fork el proyecto
-2. Crea tu rama (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add: nueva característica'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+```bash
+git clone https://github.com/Hector-0-0/Cursos-programacion.git
+cd Cursos-programacion
+
+# Acceder a un curso específico, por ejemplo:
+cd curso-js
+```
+
+Dentro de cada carpeta encontrarás el código fuente, ejercicios y notas organizados por tema.
 
 ## 👤 Autor
 
 **Hector-0-0**
-
 - GitHub: [@Hector-0-0](https://github.com/Hector-0-0)
 
 ---
 
 <div align="center">
-
-⭐ Si te gustó este proyecto, dale una estrella!
-
+⭐ Si te fue útil, dale una estrella!
 </div>
