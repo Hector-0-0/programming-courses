@@ -1,0 +1,29 @@
+# ========================
+#  Build & compiled output
+# ========================
+**/build/
+**/dist/
+**/*.class
+**/*.jar
+ 
+# ========================
+#  NetBeans project files
+# ========================
+**/nbproject/
+**/build.xml
+**/manifest.mf
+ 
+# ========================
+#  Archivos varios
+# ========================
+**/*.xlsx
+**/*.mf
+ 
+# ========================
+#  IDEs y sistemas
+# ========================
+**/.idea/
+**/*.iml
+**/.vscode/
+**/*.DS_Store
+**/Thumbs.db
