@@ -6,7 +6,7 @@ package ejemploifelseanidados;
 
 /**
  *
- * @author Dumitru
+ * @author Hector
  */
 public class EjemploIfElseAnidados {
 

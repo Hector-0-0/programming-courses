@@ -6,7 +6,7 @@ package ejemploswitch;
 
 /**
  *
- * @author Dumitru
+ * @author Hector
  */
 public class EjemploSwitch {
 

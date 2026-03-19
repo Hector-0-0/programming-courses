@@ -6,7 +6,7 @@ package ejemploifelse;
 
 /**
  *
- * @author Dumitru
+ * @author Hector
  */
 public class EjemploIfElse {
 

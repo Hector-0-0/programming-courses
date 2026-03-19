@@ -6,7 +6,7 @@ package operadorternario;
 
 /**
  *
- * @author Dumitru
+ * @author Hector
  */
 public class OperadorTernario {
 

@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Dumitru
+ * @author Hector
  */
 public class Main {
 
