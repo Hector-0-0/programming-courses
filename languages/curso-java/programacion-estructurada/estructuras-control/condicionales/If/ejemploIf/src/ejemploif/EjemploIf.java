@@ -4,8 +4,6 @@
  */
 package ejemploif;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Hector
