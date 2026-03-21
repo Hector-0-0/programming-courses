@@ -1,9 +1,7 @@
-import java.util.Scanner;
-
-public class Main {
+public class Scanner {
     public static void main(String[] args) {
         //declaracion de variables
-        Scanner lector = new Scanner(System.in);
+        java.util.Scanner lector = new java.util.Scanner(System.in);
 
         //leemos por teclado un String
 //        System.out.println("Introduce un color: ");

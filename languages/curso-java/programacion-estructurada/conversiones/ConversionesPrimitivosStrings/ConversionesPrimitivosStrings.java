@@ -1,4 +1,4 @@
-public class Main {
+public class ConversionesPrimitivosStrings {
     public static void main(String[] args) {
         //declaracion de variables
         String numero = "";

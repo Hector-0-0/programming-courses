@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class Main {
+public class InputDialog {
     public static void main(String[] args) {
         //leer un texto con JOptionPane
 //        String variable = "";

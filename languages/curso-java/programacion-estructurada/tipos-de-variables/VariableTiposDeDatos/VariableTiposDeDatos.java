@@ -1,5 +1,5 @@
 package VariableTiposDeDatos;
-public class Main {
+public class VariableTiposDeDatos {
     public static void main(String[] args) {
         
         //declaracion de una variable de tipo byte

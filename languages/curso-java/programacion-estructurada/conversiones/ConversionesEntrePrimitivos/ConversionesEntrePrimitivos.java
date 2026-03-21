@@ -1,4 +1,4 @@
-public class Main {
+public class ConversionesEntrePrimitivos {
     public static void main(String[] args) {
         //declaracion de variables
         byte num1 = 100;

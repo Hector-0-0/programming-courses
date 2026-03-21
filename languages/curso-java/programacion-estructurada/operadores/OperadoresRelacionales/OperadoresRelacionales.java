@@ -1,4 +1,4 @@
-public class Main {
+public class OperadoresRelacionales {
     public static void main(String[] args) {
         //declaracion de variables
         int num1 = 5;

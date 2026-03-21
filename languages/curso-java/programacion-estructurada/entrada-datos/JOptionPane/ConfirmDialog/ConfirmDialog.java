@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class Main {
+public class ConfirmDialog {
     public static void main(String[] args) {
 
         int opcion = JOptionPane.showConfirmDialog(null, "Elige un opcion", "Opciones disponibles", 1, 0);

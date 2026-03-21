@@ -1,4 +1,4 @@
-public class Main {
+public class OperadoresAritmeticosCombinados {
     public static void main(String[] args) {
         //declaracion de variables
         

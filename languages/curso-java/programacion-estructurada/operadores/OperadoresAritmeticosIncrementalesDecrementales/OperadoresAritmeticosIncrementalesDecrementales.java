@@ -1,4 +1,4 @@
-public class Main {
+public class OperadoresAritmeticosIncrementalesDecrementales {
     public static void main(String[] args) {
         //declaracion de variables
         int num1 = 1;

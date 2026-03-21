@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class Main {
+public class OptionDialog {
     public static void main(String[] args) {
         int opcion = JOptionPane.showOptionDialog(null, "Elige una opcion",
                 "Opciones personalizadas",

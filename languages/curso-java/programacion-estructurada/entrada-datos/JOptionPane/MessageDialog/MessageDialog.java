@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class Main {
+public class MessageDialog {
     public static void main(String[] args) {
         //pedimos datos por teclado
         String numeroTexto = JOptionPane.showInputDialog("Introduce un texto: ");

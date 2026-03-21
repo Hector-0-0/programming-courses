@@ -1,4 +1,4 @@
-public class Main {
+public class OperadoresDeAsignacion {
     public static void main(String[] args) {
 
         //declaracion de una variable y asignacion de valor
