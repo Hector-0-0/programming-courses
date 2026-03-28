@@ -16,7 +16,7 @@ public class ConversionesStringsPrimitivos {
         System.out.println("String -> long:    " + l);
 
         try {
-            int error = Integer.parseInt("abc");
+            Integer.parseInt("abc");
         } catch (NumberFormatException e) {
             System.out.println("NumberFormatException: " + e.getMessage());
         }
