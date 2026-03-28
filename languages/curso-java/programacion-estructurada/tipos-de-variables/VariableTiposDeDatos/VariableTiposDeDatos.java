@@ -1,46 +1,38 @@
-package VariableTiposDeDatos;
 public class VariableTiposDeDatos {
     public static void main(String[] args) {
-        
-        //declaracion de una variable de tipo byte
-        byte edad = 23;
-        System.out.println(edad);
-        
-        //declaracion de una variable de tipo short
-        short cantidadManzanas = 204;
-        System.out.println(cantidadManzanas);
-        
-        //declracion de una vriable de tipo int
-        int cabras = 300;
-        System.out.println(cabras);
-        
-        //declaracion de una variable de tipo long
-        long alcachofas = 4000l;
-        System.out.println(alcachofas);
-        
-        //declaracion de una variable de tipo char
-        char caracter1 = 'A';
-        System.out.println(caracter1);
-        
-        char caracter2 = 86;
-        System.out.println(caracter2);
-        
-        //declaracion de una variable de tipo boolean
-        boolean esMayor = true;
-        System.out.println(esMayor);
-        
-        //declaracion de una variable de tipo float
-        float precio = 1232.3423f;
-        System.out.println(precio);
-        
-        //declaracion de una varialbe de tipo double
-        double precio2 = 123.123567890243d;
-        System.out.println(precio2);
-        
-        //declaracion de uan variable de tipo String
-        String nombre = "er5egfuhiwerwgrgwriougerfihgdsfiuo";
-        System.out.println(nombre);
-        
+        // Tipos enteros
+        byte  numeroByte  = 100;
+        short numeroShort = 30000;
+        int   numeroInt   = 2_000_000;
+        long  numeroLong  = 9_000_000_000L;
+
+        // Tipos decimales
+        float  decimal1 = 3.14f;
+        double decimal2 = 3.141592653589793;
+
+        // Caracter
+        char letra = 'A';
+
+        // Booleano
+        boolean esVerdadero = true;
+        boolean esFalso     = false;
+
+        // Cadena de texto (no primitivo)
+        String texto = "Hola Java";
+
+        System.out.println("byte:    " + numeroByte);
+        System.out.println("short:   " + numeroShort);
+        System.out.println("int:     " + numeroInt);
+        System.out.println("long:    " + numeroLong);
+        System.out.println("float:   " + decimal1);
+        System.out.println("double:  " + decimal2);
+        System.out.println("char:    " + letra);
+        System.out.println("boolean: " + esVerdadero + " / " + esFalso);
+        System.out.println("String:  " + texto);
+
+        // Inferencia de tipo (Java 10+)
+        var numero = 42;
+        var mensaje = "Inferencia de tipo con var";
+        System.out.println(numero + " - " + mensaje);
     }
-    
 }

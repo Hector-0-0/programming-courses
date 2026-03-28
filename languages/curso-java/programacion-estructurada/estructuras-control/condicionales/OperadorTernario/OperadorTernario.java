@@ -1,22 +1,17 @@
 public class OperadorTernario {
     public static void main(String[] args) {
-        // TODO code application logic here
+        // condicion ? valorSiVerdadero : valorSiFalso
+        int a = 10, b = 20;
+        int mayor = (a > b) ? a : b;
+        System.out.println("El mayor es: " + mayor);
 
-        int x = 1;
-        int y = 2;
-        
-        int numeroMayor = 0;
-        
-        numeroMayor = x > y ? x : y;
-        System.out.println("El numero mayor: "+numeroMayor);
-        
-        
-        if(x > y){
-            System.out.println("El numero mayor: "+x);
-        } else {
-             System.out.println("El numero mayor: "+y);
-        }
-        
+        int edad = 20;
+        String acceso = (edad >= 18) ? "Permitido" : "Denegado";
+        System.out.println("Acceso: " + acceso);
+
+        // Ternario anidado
+        int n = 0;
+        String signo = (n > 0) ? "positivo" : (n < 0) ? "negativo" : "cero";
+        System.out.println("El numero es " + signo);
     }
-
 }

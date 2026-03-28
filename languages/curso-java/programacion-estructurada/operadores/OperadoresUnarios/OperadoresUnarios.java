@@ -1,36 +1,14 @@
 public class OperadoresUnarios {
     public static void main(String[] args) {
-        
-        //declaracion de variables
-        int resultado = 1;
-        System.out.println(resultado);
-        
-        int resultado2 = +1;
-        System.out.println(resultado2);
-        
-        int resultado3 = -1;
-        System.out.println(resultado3);
-        
-        //operador de incremento ++
-        resultado ++;
-        System.out.println(resultado);
-        
-        //operador de decremento --
-        resultado --;
-        System.out.println(resultado);
-        
-        
-        //cambiamos el signo del numero o variable numerica aplicando el operador de resta -
-        resultado = 10;
-        resultado = -resultado;
-        System.out.println(resultado);
-        
-        // operador de negacion
-        boolean esVerdadero = false;
-        System.out.println(esVerdadero);
-        System.out.println(!esVerdadero);
-        
-        
+        int n = 5;
+        System.out.println("n = " + n);
+        System.out.println("-n = " + (-n));
+        System.out.println("+n = " + (+n));
+        boolean b = true;
+        System.out.println("b = " + b);
+        System.out.println("!b = " + !b);
+        boolean p = true, q = false;
+        System.out.println("p && q: " + (p && q));
+        System.out.println("p || q: " + (p || q));
     }
-    
 }

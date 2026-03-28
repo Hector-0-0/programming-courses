@@ -1,21 +1,18 @@
 public class EjemploIfElse {
     public static void main(String[] args) {
-        // TODO code application logic here
-        
-        System.out.println("Ejecucion del bloque 1");
-        
-        int numero = 5;
-        
-        //---------------
-        if(numero < 3 && numero > 4){
-            System.out.println("Ejecucion del bloque 2");
+        int numero = 7;
+
+        if (numero % 2 == 0) {
+            System.out.println(numero + " es par");
         } else {
-            System.out.println("Ejecucion del bloque 3");
+            System.out.println(numero + " es impar");
         }
-        
-        //------------------
-        
-        System.out.println("Ejecucion del bloque 4");
-    } 
-    
+
+        double temperatura = 36.5;
+        if (temperatura > 37.5) {
+            System.out.println("Tiene fiebre");
+        } else {
+            System.out.println("Temperatura normal");
+        }
+    }
 }

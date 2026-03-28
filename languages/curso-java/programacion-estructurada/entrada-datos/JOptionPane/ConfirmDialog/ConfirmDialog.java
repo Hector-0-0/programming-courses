@@ -2,18 +2,16 @@ import javax.swing.JOptionPane;
 
 public class ConfirmDialog {
     public static void main(String[] args) {
+        int respuesta = JOptionPane.showConfirmDialog(null,
+            "¿Deseas continuar?", "Confirmacion",
+            JOptionPane.YES_NO_CANCEL_OPTION);
 
-        int opcion = JOptionPane.showConfirmDialog(null, "Elige un opcion", "Opciones disponibles", 1, 0);
-
-        System.out.println(opcion);
-
-        if (opcion == 0) {
-            System.out.println("Has elegido la opcion YES");
-        } else if (opcion == 1) {
-            System.out.println("Has elegido la opcion NO");
-        } else if (opcion == 2) {
-            System.out.println("Has elegido la opcion CANCEL");
+        if (respuesta == JOptionPane.YES_OPTION) {
+            System.out.println("El usuario eligio SI");
+        } else if (respuesta == JOptionPane.NO_OPTION) {
+            System.out.println("El usuario eligio NO");
+        } else {
+            System.out.println("El usuario cancelo");
         }
     }
-
 }

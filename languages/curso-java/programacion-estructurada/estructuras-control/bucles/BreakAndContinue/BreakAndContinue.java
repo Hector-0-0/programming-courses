@@ -1,37 +1,31 @@
 public class BreakAndContinue {
     public static void main(String[] args) {
-        // TODO code application logic hereç
-//
-//        // ejemplo break
-//        for (int dia = 1; dia <= 7; dia++) {
-//            System.out.println("Dia de la semana: "+dia);
-//            
-//            if(dia == 5){
-//                break;
-//                
-//            }
-//        }
-//        
-//        System.out.println("Bucle finalziado");
-        
-        
-        // ejemplo continue
-        for (int dia = 1; dia <= 7; dia++) {
-            System.out.println("Dia de la semana: "+dia);
-            
-            if(dia == 5){
-                continue;
-        
+        // Break - interrumpe el bucle
+        System.out.println("--- Break ---");
+        for (int i = 1; i <= 10; i++) {
+            if (i == 6) {
+                System.out.println("Break en i = " + i);
+                break;
             }
-            
-            System.out.println("Hola----->>: "+dia);
-            
+            System.out.println("i = " + i);
         }
-        
-        System.out.println("Bucle finalziado");
-        
-        
-        
-    }
 
+        // Continue - salta a la siguiente iteracion
+        System.out.println("\n--- Continue (pares) ---");
+        for (int i = 1; i <= 10; i++) {
+            if (i % 2 != 0) continue;  // Salta impares
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        // Break con etiqueta (bucles anidados)
+        System.out.println("\n--- Break con etiqueta ---");
+        externo:
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (i == 1 && j == 1) break externo;
+                System.out.println("i=" + i + ", j=" + j);
+            }
+        }
+    }
 }

@@ -1,19 +1,24 @@
+import java.util.Scanner;
+
 public class BucleDoWhile {
     public static void main(String[] args) {
-        // TODO code application logic here
-
-        int contador = 0;
-
-        int numero = 0;
-
+        // Do-While siempre ejecuta al menos una vez
+        System.out.println("--- Do-While ---");
+        int i = 1;
         do {
-            System.out.println("Contador: " + contador);
-            numero = contador++;
-        } while (contador <= 10);
+            System.out.println("i = " + i);
+            i++;
+        } while (i <= 5);
 
-        System.out.println("Numero al final: " + numero);
-        System.out.println("Contador al final: " + contador);
-
+        // Do-While para validar entrada
+        System.out.println("\n--- Validacion de entrada ---");
+        Scanner sc = new Scanner(System.in);
+        int num;
+        do {
+            System.out.print("Ingresa un numero entre 1 y 10: ");
+            num = sc.nextInt();
+        } while (num < 1 || num > 10);
+        System.out.println("Ingresaste: " + num);
+        sc.close();
     }
-
 }

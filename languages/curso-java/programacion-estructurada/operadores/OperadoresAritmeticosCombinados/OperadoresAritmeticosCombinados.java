@@ -1,65 +1,11 @@
 public class OperadoresAritmeticosCombinados {
     public static void main(String[] args) {
-        //declaracion de variables
-        
-        int num1 = 10;
-        int num2 = 5;
-        
-        
-        // 1: suma
-        //forma normal
-        num1 = num1 + num2;
-        System.out.println(num1);
-        //forma combinada
-        num1 = 10; //reasignamos el valor al num1, para que de el mismo resultado
-        
-        num1 += num2;
-        System.out.println(num1);
-        
-        // 2: resta
-        //forma normal
-        num1 = 10; //reasignamos el valor al num1, para que de el mismo resultado
-        num1 = num1 - num2;
-        System.out.println(num1);
-        //forma combinada
-        num1 = 10; //reasignamos el valor al num1, para que de el mismo resultado
-        
-        num1 -= num2;
-        System.out.println(num1);
-        
-        // 3: multiplicacion
-        //forma normal
-        num1 = 10; //reasignamos el valor al num1, para que de el mismo resultado
-        num1 = num1 * num2;
-        System.out.println(num1);
-        //forma combinada
-        num1 = 10; //reasignamos el valor al num1, para que de el mismo resultado
-        
-        num1 *= num2;
-        System.out.println(num1);
-        
-        // 4: division
-        //forma normal
-        num1 = 10; //reasignamos el valor al num1, para que de el mismo resultado
-        num1 = num1 / num2;
-        System.out.println(num1);
-        //forma combinada
-        num1 = 10; //reasignamos el valor al num1, para que de el mismo resultado
-        
-        num1 /= num2;
-        System.out.println(num1);
-        
-        // 5: modulo
-        //forma normal
-        num1 = 10; //reasignamos el valor al num1, para que de el mismo resultado
-        num1 = num1 % num2;
-        System.out.println(num1);
-        //forma combinada
-        num1 = 10; //reasignamos el valor al num1, para que de el mismo resultado
-        
-        num1 %= num2;
-        System.out.println(num1);
-       
+        int n = 10;
+
+        n += 5;  System.out.println("n += 5  → " + n);
+        n -= 3;  System.out.println("n -= 3  → " + n);
+        n *= 2;  System.out.println("n *= 2  → " + n);
+        n /= 4;  System.out.println("n /= 4  → " + n);
+        n %= 3;  System.out.println("n %= 3  → " + n);
     }
-    
 }

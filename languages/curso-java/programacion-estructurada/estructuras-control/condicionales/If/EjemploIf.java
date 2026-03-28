@@ -1,17 +1,14 @@
 public class EjemploIf {
     public static void main(String[] args) {
-        // TODO code application logic here
-        
-        System.out.println("Ejecucion bloque 1");
-        
-        int numero = 11;
-        
-        if(numero > 5 || numero < 10){
-            System.out.println("Ejecucion del bloque 2");
+        int edad = 18;
+
+        if (edad >= 18) {
+            System.out.println("Eres mayor de edad");
         }
-        
-        System.out.println("Ejecucion del bloque 3");
-        
+
+        int nota = 85;
+        if (nota >= 60) {
+            System.out.println("Aprobado con nota: " + nota);
+        }
     }
-    
 }

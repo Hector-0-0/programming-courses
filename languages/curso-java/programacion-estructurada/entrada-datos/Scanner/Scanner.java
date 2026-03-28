@@ -1,24 +1,23 @@
+import java.util.Scanner;
+
 public class Scanner {
     public static void main(String[] args) {
-        //declaracion de variables
-        java.util.Scanner lector = new java.util.Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        //leemos por teclado un String
-//        System.out.println("Introduce un color: ");
-//        String color = lector.nextLine();
-//        System.out.println("El color es: " + color);
-        
-        //leemos un numero por teclado
-//        System.out.println("Introduce un numero: ");
-//        int numero = lector.nextInt();
-//        System.out.println("EL numero introducido es: "+numero);
-        
-        //leemos un numero por teclado, pero hacemos conversion
-        System.out.println("Introduce un numero: ");
-        String numeroTexto = lector.nextLine();
-        int numero = Integer.parseInt(numeroTexto);
-        System.out.println("EL numero introducido es: "+numero);
-        
+        System.out.print("Ingresa tu nombre: ");
+        String nombre = scanner.nextLine();
+
+        System.out.print("Ingresa tu edad: ");
+        int edad = scanner.nextInt();
+
+        System.out.print("Ingresa tu altura (ej: 1.75): ");
+        double altura = scanner.nextDouble();
+
+        System.out.println("\n--- Datos ingresados ---");
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Edad:   " + edad);
+        System.out.println("Altura: " + altura + " m");
+
+        scanner.close();
     }
-
 }

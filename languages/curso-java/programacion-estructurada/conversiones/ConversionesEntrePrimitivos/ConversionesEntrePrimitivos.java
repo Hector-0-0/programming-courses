@@ -1,34 +1,24 @@
 public class ConversionesEntrePrimitivos {
     public static void main(String[] args) {
-        //declaracion de variables
-        byte num1 = 100;
-        int num2 = 1300;
-        
-        float num3 = 4000.123f;
-        double num4 = 5000.123456789123123;
-        
-        //conversion de ampliacion primitiva (implicita / automatica)
-//        num2 = num1;
-//        System.out.println(num1);
-//        System.out.println(num2);
-//        
-//        num4 = num3;
-//        System.out.println(num3);
-//        System.out.println(num4);
-        
-        //conversiones de estrechamiento primitivo (explicita / manual)
-        num1 = (byte) num2;
-        System.out.println(num1);
-        System.out.println(num2);
-        
-        num3 = (float) num4;
-        System.out.println(num3);
-        System.out.println(num4);
-        
-        
-        
-        
-        
+        // Widening (automatico, sin perdida)
+        int entero = 150;
+        long   largo    = entero;
+        float  flotante = entero;
+        double doble    = entero;
+        System.out.println("int -> long:   " + largo);
+        System.out.println("int -> float:  " + flotante);
+        System.out.println("int -> double: " + doble);
+
+        // Narrowing (casting manual, puede perder precision)
+        double pi = 3.99999;
+        int piEntero = (int) pi;
+        System.out.println("double -> int (casting): " + piEntero);
+
+        // char <-> int
+        char letra = 'A';
+        int codigo = letra;
+        System.out.println("char 'A' -> int: " + codigo);
+        char de65 = (char) 65;
+        System.out.println("int 65 -> char: " + de65);
     }
-    
 }

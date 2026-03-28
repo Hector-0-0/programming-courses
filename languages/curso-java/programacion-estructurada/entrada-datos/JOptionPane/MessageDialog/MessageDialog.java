@@ -2,11 +2,9 @@ import javax.swing.JOptionPane;
 
 public class MessageDialog {
     public static void main(String[] args) {
-        //pedimos datos por teclado
-        String numeroTexto = JOptionPane.showInputDialog("Introduce un texto: ");
-        int numero = Integer.parseInt(numeroTexto);
-        
-        JOptionPane.showMessageDialog(null, "El numero es: "+numero, "El numero que has introducido es:", 2);
+        // Tipos de icono: PLAIN_MESSAGE, INFORMATION_MESSAGE, WARNING_MESSAGE, ERROR_MESSAGE, QUESTION_MESSAGE
+        JOptionPane.showMessageDialog(null, "Mensaje informativo", "Titulo", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Advertencia",         "Titulo", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Error ocurrido",      "Titulo", JOptionPane.ERROR_MESSAGE);
     }
-    
 }
