@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>spring boot</title>
 </head>
 <body>
-    <h1>hola mundo</h1>
+    <h1 th:text="${Titulo}"></h1> <!-- El atributo "th:text" de Thymeleaf se utiliza para establecer el texto de un elemento HTML. En este caso, se espera que el modelo proporcionado por el controlador contenga un atributo llamado "Titulo", y su valor se mostrará como el contenido del elemento. -->
+    <h2 th:text="${Subtitulo}"></h2>
+    <p th:text="${mensaje}"></p>
 </body>
 </html>
