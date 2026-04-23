@@ -6,8 +6,17 @@
     <title>spring boot</title>
 </head>
 <body>
-    <h1 th:text="${Titulo}"></h1> <!-- El atributo "th:text" de Thymeleaf se utiliza para establecer el texto de un elemento HTML. En este caso, se espera que el modelo proporcionado por el controlador contenga un atributo llamado "Titulo", y su valor se mostrará como el contenido del elemento. -->
-    <h2 th:text="${Subtitulo}"></h2>
-    <p th:text="${mensaje}"></p>
+    <!-- <h1 th:text="${Titulo}"></h1> <!-- El atributo "th:text" de Thymeleaf se utiliza para establecer el texto de un elemento HTML. En este caso, se espera que el modelo proporcionado por el controlador contenga un atributo llamado "Titulo", y su valor se mostrará como el contenido del elemento. -->
+    <!-- <h2 th:text="${Subtitulo}"></h2> -->
+    <!-- <p th:text="${mensaje}"></p> -->
+
+    <li>
+        <p>Nombre: <span th:text="${empleado.nombre}"></span></p>
+        <p>Apellido: <span th:text="${empleado.apellido}"></span></p>
+        <p>Dirección: <span th:text="${empleado.direccion}"></span></p>
+        <p>Puesto: <span th:text="${empleado.puesto}"></span></p>
+        <p>Edad: <span th:text="${empleado.edad}"></span></p>
+        <p>Teléfono: <span th:text="${empleado.telefono}"></span></p>
+    </li>
 </body>
 </html>

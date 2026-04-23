@@ -4,9 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.example.demo.models.Empleados;
+
 @Controller //Decorador que indica que esta clase es un controlador de Spring MVC
 public class EjemploController {
-    
+    /*
     @GetMapping("/detalles_info") //Mapea la ruta "/detalles_info" a este método, lo que significa que cuando un usuario acceda a esta URL, se ejecutará este método
     public String info(Model model){
         //Aquí puedes agregar datos al modelo que se pasarán a la vista
@@ -15,6 +17,7 @@ public class EjemploController {
         model.addAttribute("mensaje", "¡Bienvenido a mi aplicación Spring Boot!");
         return "detalles_info"; //Devuelve el nombre de la vista que se debe renderizar, en este caso, se espera que haya un archivo llamado "detalles_info.html" en el directorio de plantillas (templates) de la aplicación
     }
+    */
 
     /*//Otra forma de escribir el método info utilizando un Map en lugar de Model
     @GetMapping("/detalles_info")
@@ -26,4 +29,12 @@ public class EjemploController {
         return "detalles_info"; //Devuelve el nombre de la vista que se debe renderizar, en este caso, se espera que haya un archivo llamado "detalles_info.html" en el directorio de plantillas (templates) de la aplicación
     }
     */
+
+    @GetMapping("/detalles_info") //Mapea la ruta "/detalles_info" a este método, lo que significa que cuando un usuario acceda a esta URL, se ejecutará este método
+    public String info(Model model){
+        //Aquí puedes agregar datos al modelo que se pasarán a la vista
+        Empleados empleado1 = new Empleados("Juan", "Pérez", "Calle 123", "Desarrollador", 30, 5551234, 1);
+        model.addAttribute("empleado", empleado1); //Agrega un atributo al modelo con la clave "empleado" y el valor del objeto empleado1. Este valor se puede acceder en la vista utilizando la clave "empleado".
+        return "detalles_info"; //Devuelve el nombre de la vista que se debe renderizar, en este caso, se espera que haya un archivo llamado "detalles_info.html" en el directorio de plantillas (templates) de la aplicación
+    }
 }
